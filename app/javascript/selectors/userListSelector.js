@@ -1,4 +1,6 @@
 export const selectUserRecords = state => {
-  const usersObject = state.fetchUserList ? state.fetchUserList.userList : null;
+  const usersObject = state.usersListReducer
+    ? state.usersListReducer.userList
+    : null;
   return usersObject ? usersObject.records.message : null;
 };

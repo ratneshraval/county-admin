@@ -20,7 +20,7 @@ describe('UserService', () => {
     it('calls fetch ApiService', () => {
       getSpy.mockReturnValue(Promise.resolve({}));
       expect(getSpy).not.toHaveBeenCalled();
-      UserService.fetchUserList(id);
+      UserService.usersListReducer(id);
       expect(getSpy).toHaveBeenCalledWith('/');
     });
   });

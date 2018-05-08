@@ -1,5 +1,5 @@
 import UserService from '../_services/users';
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 import { takeLatest, call, put } from 'redux-saga/effects';
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga

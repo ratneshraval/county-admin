@@ -4,7 +4,7 @@ describe('selectors', () => {
   describe('#selectUserRecords', () => {
     it('selects the user records', () => {
       const state = {
-        fetchUserList: {
+        usersListReducer: {
           userList: {
             records: ['first', 'second', 'third'],
           },
@@ -17,7 +17,7 @@ describe('selectors', () => {
 
     it('selects empty users', () => {
       const state = {
-        fetchUserList: {},
+        usersListReducer: {},
         other_stuff: { bad: 'ignore' },
       };
       expect(selectUserRecords(state)).toBe(null);

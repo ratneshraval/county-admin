@@ -1,14 +1,14 @@
-import reducer from './reducers';
-import * as actionTypes from '../constants/actionTypes';
+import usersListReducer from './usersListReducer';
+import * as actionTypes from '../actions/actionTypes';
 
-describe('reducer', () => {
+describe('usersListReducer', () => {
   it('handles FETCH_USERS_API_CALL_REQUEST', () => {
     const requestAction = {
       type: actionTypes.FETCH_USERS_API_CALL_REQUEST,
     };
     const state = { userList: null, fetching: false };
-    expect(reducer(state, requestAction)).toEqual({
-      fetchUserList: {
+    expect(usersListReducer(state, requestAction)).toEqual({
+      usersListReducer: {
         fetching: true,
         userList: null,
         error: null,
@@ -22,8 +22,8 @@ describe('reducer', () => {
       userList: ['user1', 'user2'],
     };
     const state = { userList: null, fetching: true, error: null };
-    expect(reducer(state, responseAction)).toEqual({
-      fetchUserList: {
+    expect(usersListReducer(state, responseAction)).toEqual({
+      usersListReducer: {
         fetching: false,
         userList: { records: ['user1', 'user2'], XHRStatus: 'ready' },
         error: null,
@@ -38,8 +38,8 @@ describe('reducer', () => {
       error: 'error happened',
     };
     const state = { userList: null, fetching: true, error: null };
-    expect(reducer(state, failureAction)).toEqual({
-      fetchUserList: {
+    expect(usersListReducer(state, failureAction)).toEqual({
+      usersListReducer: {
         fetching: false,
         userList: null,
         error: 'error happened',
